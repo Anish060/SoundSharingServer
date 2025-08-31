@@ -6,7 +6,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "https://soundsharing.vercel.app/", // Replace with your client's URL
+    origin: "*", // Replace with your client's URL
     methods: ["GET", "POST"]
   }
 });
