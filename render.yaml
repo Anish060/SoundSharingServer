@@ -23,4 +23,4 @@ services:
     buildCommand: "npm install && npm run build"
     # This start command uses a simple static server like 'serve'
     # You'll need to add 'serve' as a dependency in your client's package.json
-    startCommand: "serve -s dist -l $PORT"
+    startCommand: "npx serve -s dist -l $PORT"
