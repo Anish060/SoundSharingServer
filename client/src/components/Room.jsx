@@ -4,7 +4,7 @@ import AudioPlayer from './AudioPlayer'; // Import the new component
 function Room({ roomId, socket }) {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [songSrc] = useState('/your-song.mp3'); // Replace with a real song URL
+  const [songSrc] = useState('/Sirikkadhey.mp3'); // Replace with a real song URL
 
   useEffect(() => {
     // Listener for when a new user joins a room to sync their playback

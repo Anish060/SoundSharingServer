@@ -4,16 +4,23 @@ services:
     name: audio-sync-server
     env: node
     plan: free
+    rootDir: "server"
     buildCommand: "npm install"
     startCommand: "node server.js"
-    # The root directory for the service is the 'server' folder
-    rootDir: "server"
+    # To avoid having the client and server on the same port,
+    # you can expose a different port for the server.
+    # ports:
+    #   - port: 3000
+    #     name: http
+    #     protocol: TCP
 
-  # Static Site for the React Client
-  - type: static
+  # Web Service for the React Client
+  - type: web
     name: audio-sync-client
+    env: node
     plan: free
-    # The build command runs from the root and builds the React app
-    buildCommand: "cd client && npm install && npm run build"
-    # The publish directory is where the built static files are located
-    staticPublishPath: "client/dist"
+    rootDir: "client"
+    buildCommand: "npm install && npm run build"
+    # This start command uses a simple static server like 'serve'
+    # You'll need to add 'serve' as a dependency in your client's package.json
+    startCommand: "serve -s dist -l $PORT"
